@@ -147,10 +147,10 @@ public class OVRPlayerController : MonoBehaviour
 	void Update()
 	{
 		//Use keys to ratchet rotation
-		if (Input.GetKeyDown(KeyCode.Q))
+		if (Input.GetKeyDown(KeyCode.Q) || Input.GetAxis("Horizontal") < 0)
 			buttonRotation -= RotationRatchet;
 
-		if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetKeyDown(KeyCode.E) || Input.GetAxis("Horizontal") > 0)
 			buttonRotation += RotationRatchet;
 	}
 
@@ -237,6 +237,7 @@ public class OVRPlayerController : MonoBehaviour
 		bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0;
 		bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0;
 		bool moveBack = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Vertical") < 0;
+		//bool jump = Input.GetKey (KeyCode.Space) || Input.GetButton("One")|| Input.GetButton("Two")|| Input.GetButton("Three")|| Input.GetButton("Four");
 
 		bool dpad_move = false;
 
@@ -306,6 +307,8 @@ public class OVRPlayerController : MonoBehaviour
 		buttonRotation = 0f;
 
 		float rotateInfluence = SimulationRate * Time.deltaTime * RotationAmount * RotationScaleMultiplier;
+
+			
 
 #if !UNITY_ANDROID || UNITY_EDITOR
 		if (!SkipMouseRotation)
