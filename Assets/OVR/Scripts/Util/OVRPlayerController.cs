@@ -147,10 +147,10 @@ public class OVRPlayerController : MonoBehaviour
 	void Update()
 	{
 		//Use keys to ratchet rotation
-		if (Input.GetKeyDown(KeyCode.Q) || Input.GetAxis("Horizontal") < 0)
+		if (Input.GetKeyDown(KeyCode.Q)) //|| Input.GetAxis("Horizontal") < 0)
 			buttonRotation -= RotationRatchet;
 
-		if (Input.GetKeyDown(KeyCode.E) || Input.GetAxis("Horizontal") > 0)
+		if (Input.GetKeyDown(KeyCode.E)) //|| Input.GetAxis("Horizontal") > 0)
 			buttonRotation += RotationRatchet;
 	}
 
