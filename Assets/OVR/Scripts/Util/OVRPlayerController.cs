@@ -233,7 +233,7 @@ public class OVRPlayerController : MonoBehaviour
 		if (HaltUpdateMovement)
 			return;
 		
-		bool moveForward = OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp);
+		bool moveForward = OVRInput.Button.PrimaryThumbstickUp > 0.3 ;
 		bool moveLeft = OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft);
 		bool moveRight = OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight);
 		bool moveBack = OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown);
