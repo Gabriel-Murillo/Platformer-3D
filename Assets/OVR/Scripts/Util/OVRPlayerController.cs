@@ -233,10 +233,10 @@ public class OVRPlayerController : MonoBehaviour
 		if (HaltUpdateMovement)
 			return;
 
-		bool moveForward = Input.GetAxis("5") > 0 || Input.GetAxis("2") > 0;
-		bool moveLeft = Input.GetAxis("4") < 0 || Input.GetAxis("1") < 0;
-		bool moveRight = Input.GetAxis("4") > 0 || Input.GetAxis("1") > 0;
-		bool moveBack = Input.GetAxis("5") < 0 || Input.GetAxis("2") > 0;
+		bool moveForward = Input.GetAxis("5") > 0 || OVRInput.Axis2D.PrimaryThumbstick("Vertical") > 0 || OVRInput.Axis2D.SecondaryThumbstick("Vertical") > 0;
+		bool moveLeft = Input.GetAxis("4") < 0 || OVRInput.Axis2D.PrimaryThumbstick("Horizontal") < 0 || OVRInput.Axis2D.SecondaryThumbstick("Horizontal") < 0;
+		bool moveRight = Input.GetAxis("4") > 0 || OVRInput.Axis2D.PrimaryThumbstick("Horizontal") > 0 || OVRInput.Axis2D.SecondaryThumbstick("Horizontal") > 0;
+		bool moveBack = Input.GetAxis("5") < 0 || OVRInput.Axis2D.PrimaryThumbstick("Vertical") < 0 || OVRInput.Axis2D.SecondaryThumbstick("Vertical") < 0;
 		//bool jump = Input.GetKey (KeyCode.Space) || Input.GetButton("One")|| Input.GetButton("Two")|| Input.GetButton("Three")|| Input.GetButton("Four");
 
 		bool dpad_move = false;
@@ -341,7 +341,7 @@ public class OVRPlayerController : MonoBehaviour
 
 		transform.rotation = Quaternion.Euler(euler);
 
-		if (Input.GetKey(KeyCode.F) || Input.GetButton("0")) Jump();
+		if (OVRInput.Button("One")) Jump();
 	}
 
 	/// <summary>
