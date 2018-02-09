@@ -233,10 +233,10 @@ public class OVRPlayerController : MonoBehaviour
 		if (HaltUpdateMovement)
 			return;
 
-		bool moveForward = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("Vertical") > 0;
-		bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0;
-		bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0;
-		bool moveBack = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Vertical") < 0;
+		bool moveForward = Input.GetAxis("5") > 0 || Input.GetAxis("2") > 0;
+		bool moveLeft = Input.GetAxis("4") < 0 || Input.GetAxis("1") < 0;
+		bool moveRight = Input.GetAxis("4") > 0 || Input.GetAxis("1") > 0;
+		bool moveBack = Input.GetAxis("5") < 0 || Input.GetAxis("2") > 0;
 		//bool jump = Input.GetKey (KeyCode.Space) || Input.GetButton("One")|| Input.GetButton("Two")|| Input.GetButton("Three")|| Input.GetButton("Four");
 
 		bool dpad_move = false;
@@ -340,6 +340,8 @@ public class OVRPlayerController : MonoBehaviour
 		euler.y += secondaryAxis.x * rotateInfluence;
 
 		transform.rotation = Quaternion.Euler(euler);
+
+		if (Input.GetKey(KeyCode.F) || Input.GetButton("0")) Jump();
 	}
 
 	/// <summary>
