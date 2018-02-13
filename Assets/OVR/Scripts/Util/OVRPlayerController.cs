@@ -233,10 +233,10 @@ public class OVRPlayerController : MonoBehaviour
 		if (HaltUpdateMovement)
 			return;
 		
-		bool moveForward = OVRInput.Button.PrimaryThumbstickUp > 0.3 ;
-		bool moveLeft = OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft);
-		bool moveRight = OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight);
-		bool moveBack = OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown);
+		bool moveForward = OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp) || OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y > 0f;
+		bool moveLeft = OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft) || OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x < 0f;
+		bool moveRight = OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight) || OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x > 0f;
+		bool moveBack = OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown) || OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y < 0f;
 		//bool jump = Input.GetKey (KeyCode.Space) || Input.GetButton("One")|| Input.GetButton("Two")|| Input.GetButton("Three")|| Input.GetButton("Four");
 
 		bool dpad_move = false;
@@ -341,7 +341,7 @@ public class OVRPlayerController : MonoBehaviour
 
 		transform.rotation = Quaternion.Euler(euler);
 
-		if (OVRInput.Get(OVRInput.Button.One)) 
+		if (OVRInput.GetDown(OVRInput.Button.One)) 
 			Jump();
 	}
 
