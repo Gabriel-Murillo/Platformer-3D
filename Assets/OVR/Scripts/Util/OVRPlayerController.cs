@@ -152,6 +152,8 @@ public class OVRPlayerController : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.E))
 			buttonRotation += RotationRatchet;
+		
+		OVRInput.Update ();
 	}
 
 	protected virtual void UpdateController()
@@ -233,10 +235,10 @@ public class OVRPlayerController : MonoBehaviour
 		if (HaltUpdateMovement)
 			return;
 
-		bool moveForward = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
-		bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
-		bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
-		bool moveBack = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+		bool moveForward = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp);
+		bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft);
+		bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight);
+		bool moveBack = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown);
 
 		bool dpad_move = false;
 
@@ -337,6 +339,11 @@ public class OVRPlayerController : MonoBehaviour
 		euler.y += secondaryAxis.x * rotateInfluence;
 
 		transform.rotation = Quaternion.Euler(euler);
+
+		if (OVRInput.GetDown(OVRInput.Button.One)) 
+			Jump();
+
+		OVRInput.Update();
 	}
 
 	/// <summary>
@@ -356,9 +363,11 @@ public class OVRPlayerController : MonoBehaviour
 
 			root.position = prevPos;
 			root.rotation = prevRot;
+
 		}
 
 		UpdateController();
+		OVRInput.Update();
 	}
 
 	/// <summary>
@@ -445,6 +454,7 @@ public class OVRPlayerController : MonoBehaviour
 	public void GetHaltUpdateMovement(ref bool haltUpdateMovement)
 	{
 		haltUpdateMovement = HaltUpdateMovement;
+		OVRInput.Update();
 	}
 
 	/// <summary>
@@ -454,6 +464,7 @@ public class OVRPlayerController : MonoBehaviour
 	public void SetHaltUpdateMovement(bool haltUpdateMovement)
 	{
 		HaltUpdateMovement = haltUpdateMovement;
+		OVRInput.Update();
 	}
 
 	/// <summary>
