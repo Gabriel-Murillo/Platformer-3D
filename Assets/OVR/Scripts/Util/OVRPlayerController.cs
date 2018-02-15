@@ -238,10 +238,10 @@ public class OVRPlayerController : MonoBehaviour
 		if (HaltUpdateMovement)
 			return;
 
-		bool moveForward = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp);
-		bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft);
-		bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight);
-		bool moveBack = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown);
+		bool moveForward = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp, OVRInput.Controller.RTrackedRemote);
+		bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft, OVRInput.Controller.RTrackedRemote);
+		bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight, OVRInput.Controller.RTrackedRemote)
+			bool moveBack = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown, OVRInput.Controller.RTrackedRemote));
 
 		bool dpad_move = false;
 
