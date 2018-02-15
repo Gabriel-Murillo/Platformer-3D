@@ -146,6 +146,8 @@ public class OVRPlayerController : MonoBehaviour
 
 	void Update()
 	{
+		OVRInput.Update();
+
 		//Use keys to ratchet rotation
 		if (Input.GetKeyDown(KeyCode.Q))
 			buttonRotation -= RotationRatchet;
@@ -153,7 +155,7 @@ public class OVRPlayerController : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.E))
 			buttonRotation += RotationRatchet;
 		
-		OVRInput.Update ();
+
 	}
 
 	protected virtual void UpdateController()
@@ -232,6 +234,7 @@ public class OVRPlayerController : MonoBehaviour
 
 	public virtual void UpdateMovement()
 	{
+		OVRInput.Update();
 		if (HaltUpdateMovement)
 			return;
 
@@ -343,7 +346,7 @@ public class OVRPlayerController : MonoBehaviour
 		if (OVRInput.GetDown(OVRInput.Button.One)) 
 			Jump();
 
-		OVRInput.Update();
+
 	}
 
 	/// <summary>
@@ -351,6 +354,7 @@ public class OVRPlayerController : MonoBehaviour
 	/// </summary>
 	public void UpdateTransform(OVRCameraRig rig)
 	{
+		OVRInput.Update();
 		Transform root = CameraRig.trackingSpace;
 		Transform centerEye = CameraRig.centerEyeAnchor;
 
@@ -367,7 +371,7 @@ public class OVRPlayerController : MonoBehaviour
 		}
 
 		UpdateController();
-		OVRInput.Update();
+
 	}
 
 	/// <summary>
@@ -453,8 +457,9 @@ public class OVRPlayerController : MonoBehaviour
 	/// <param name="haltUpdateMovement">Halt update movement.</param>
 	public void GetHaltUpdateMovement(ref bool haltUpdateMovement)
 	{
-		haltUpdateMovement = HaltUpdateMovement;
 		OVRInput.Update();
+		haltUpdateMovement = HaltUpdateMovement;
+
 	}
 
 	/// <summary>
@@ -463,8 +468,9 @@ public class OVRPlayerController : MonoBehaviour
 	/// <param name="haltUpdateMovement">If set to <c>true</c> halt update movement.</param>
 	public void SetHaltUpdateMovement(bool haltUpdateMovement)
 	{
-		HaltUpdateMovement = haltUpdateMovement;
 		OVRInput.Update();
+		HaltUpdateMovement = haltUpdateMovement;
+
 	}
 
 	/// <summary>
