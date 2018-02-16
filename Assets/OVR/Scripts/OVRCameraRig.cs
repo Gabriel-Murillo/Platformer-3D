@@ -108,12 +108,14 @@ public class OVRCameraRig : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		OVRInput.Update ();
 		if (useFixedUpdateForTracking)
 			UpdateAnchors();
 	}
 
 	private void Update()
 	{
+		OVRInput.Update ();
 		_skipUpdate = false;
 
 		if (!useFixedUpdateForTracking)
