@@ -21,7 +21,6 @@ limitations under the License.
 
 using UnityEngine;
 using System.Collections.Generic;
-using OvrAvatar;
 
 /// <summary>
 /// Controls the player's movement in virtual reality.
