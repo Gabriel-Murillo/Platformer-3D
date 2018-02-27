@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platformer-3D", "Assembly-CSharp.csproj", "{0B032FA7-7AEE-F2C4-25F5-86EBCB8EBF59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platformer-3D", "Assembly-CSharp-firstpass.csproj", "{3987A313-E8E9-5E55-DD4A-6541DC05B705}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platformer-3D", "Assembly-CSharp-Editor-firstpass.csproj", "{EE0C37C5-1DB5-2FB7-40B8-3A5843232BA3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platformer-3D", "Assembly-CSharp-Editor.csproj", "{9C64A35C-C82C-1D97-6F00-E1C4AABED607}"
 EndProject
 Global
@@ -19,14 +15,6 @@ Global
 		{0B032FA7-7AEE-F2C4-25F5-86EBCB8EBF59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B032FA7-7AEE-F2C4-25F5-86EBCB8EBF59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B032FA7-7AEE-F2C4-25F5-86EBCB8EBF59}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3987A313-E8E9-5E55-DD4A-6541DC05B705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3987A313-E8E9-5E55-DD4A-6541DC05B705}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3987A313-E8E9-5E55-DD4A-6541DC05B705}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3987A313-E8E9-5E55-DD4A-6541DC05B705}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE0C37C5-1DB5-2FB7-40B8-3A5843232BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE0C37C5-1DB5-2FB7-40B8-3A5843232BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE0C37C5-1DB5-2FB7-40B8-3A5843232BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE0C37C5-1DB5-2FB7-40B8-3A5843232BA3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C64A35C-C82C-1D97-6F00-E1C4AABED607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C64A35C-C82C-1D97-6F00-E1C4AABED607}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C64A35C-C82C-1D97-6F00-E1C4AABED607}.Release|Any CPU.ActiveCfg = Release|Any CPU
